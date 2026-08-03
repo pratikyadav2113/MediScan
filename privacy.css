@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+   display: none; 
+}
+
+body{
+    background-color: beige;
+
+}
+
+#main-cntr{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 4rem 0;
+    background-color: rgb(207, 207, 193);
+
+}
+
+#txt-cntr{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+
+}
+
+    #update{
+        font-family: cursive;
+        color: #183153;
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    #pp-txt{
+
+        font-family: cursive;
+        font-size: 1.6rem;
+        margin-bottom: 2.8rem;
+
+    }
+
+    #pp-def{
+        display: flex;
+    
+    }
+    #pp-def p{
+        max-width: 45ch;
+        font-family:  cursive;
+        text-align: center;
+        color: #183153;
+        font-size: 1.3rem;
+    }
+
+#pp-img{
+    display: flex;
+
+}
+
+@media screen and (max-width:460px){
+    #pp-img img{
+        width: 50%;
+    }
+
+    #main-cntr{
+        width: 460px;
+        padding: 1rem;
+
+    }
+
+    #points-cntr{
+        width: 460px;
+        padding: 1rem;
+    }
+
+}
+
+@media screen and (max-width:760px){
+    #main-cntr{
+        padding: 1rem;
+
+    }
+
+    #points-cntr{
+        padding: 1rem;
+    }
+}
+
+
+#points-cntr{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    border: black 2px solid;
+
+
+
+}
+
+#points{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    gap: 2rem;
+    margin: 4rem 0;
+    border: black 0.2rem solid;
+    padding: 2rem;
+    border-radius: 2rem;
+    background-color: #FFF9E8;
+}
+
+    #point-head{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+        #point-head h1{
+            font-family: cursive;
+            font-size: 1.8rem;
+            text-align: center;
+
+        }
+
+        #point-head p{
+            font-family: cursive;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+    
+    #point-txt ul{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; 
+        /* align-items: center; */
+        margin-left: 4rem;
+    }
+    
+        #point-txt li{
+            font-family: cursive;
+            font-size: 1.2rem;
+            max-width: 75ch;
+            line-height: 2.2rem;
+        }
+

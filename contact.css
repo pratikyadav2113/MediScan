@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+   display: none; 
+}
+
+body{
+    background-color: beige;
+}
+
+#dis-cntr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4rem;
+    padding: 3rem;
+    gap: 4rem;
+    flex-wrap: wrap;
+    
+}
+
+h1{
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    color: #2C2C2C;
+
+}
+
+#dis-cntr p{
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5rem;
+    max-width: 40ch;
+    width: 90%;
+    text-align: center;
+    line-height: 2.5rem;
+    font-weight: 600;
+}
+
+#main-cntr{
+    display: flex;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: #2C2C2C 0.2rem solid;
+    border-radius: 2rem;
+    margin: 4rem;
+}
+
+#PE-cntr{
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    
+}
+
+    #PE-cntr img{
+        width: 15rem;
+        border-radius: 2rem;
+        border: 0.3rem solid black;
+    }
+
+#P-cntr,#E-cntr{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    
+    
+}
+
+#P-cntr p,#E-cntr p{
+  
+    font-family: 'Inter', sans-serif;
+    color: #2C2C2C;
+    font-size: 1.5rem;
+    font-weight: 600;
+   
+}
+
+#time,#lct{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-style: oblique;
+    border-top: black 0.2rem solid;
+    /* align-items: center; */
+   
+}
+
+#time-lct-cntr{
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+#time{
+    padding-top: 2rem;
+}
+
+#lct{
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+
+}
+
+/* @media screen and (max-width:768px){
+    #PE-cntr img{
+        width: 10rem;
+        border-radius: 2rem;
+        border: 0.3rem solid black;
+        flex-wrap: wrap;
+    }
+} */
+
+@media (max-width:768px){
+    h1{
+        font-size: 2.3rem;
+    }
+
+    #dis-cntr{
+        margin: 2rem 1rem;
+        padding: 1rem;
+    }
+
+    #main-cntr{
+        margin: 1rem;
+    }
+}
+
