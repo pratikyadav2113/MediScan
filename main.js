@@ -6,7 +6,7 @@ document.getElementById("login").onclick = function(){
     window.location.href = "login.html";
 }
 
-// Supabase Client Initialization
+
 const sb = window.supabase.createClient(
     "https://jhrhzgaqzykdpjqbupog.supabase.co",
     "sb_publishable_AtXjFnTTxqX-Fm4Tml7vMQ_hMQh3c20"
@@ -16,13 +16,13 @@ document.addEventListener("DOMContentLoaded", async function () {
     const lgnSgnCntr = document.getElementById("lgn-sgn-cntr");
 
     try {
-        // Fetch active session from Supabase
+
         const { data: { user } } = await sb.auth.getUser();
 
         if (user) {
             const userName = user.user_metadata?.full_name || user.email.split("@")[0];
 
-            // 1. Inject Welcome Modal (Initially hidden)
+            
             const welcomeModalHTML = `
                 <div id="welcome-modal" style="
                     display: none; 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 </div>
             `;
 
-            // 2. Inject Logout Confirmation Modal
+
             const logoutModalHTML = `
                 <div id="logout-modal" style="
                     display: none; 
@@ -125,7 +125,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
             document.body.insertAdjacentHTML("beforeend", welcomeModalHTML + logoutModalHTML);
 
-            // Update Navbar display
             if (lgnSgnCntr) {
                 lgnSgnCntr.innerHTML = `
                     <span style="font-family: cursive; font-weight: 600; font-size: 1.1rem; color: #1F2937; margin-right: 1rem;">
@@ -145,13 +144,13 @@ document.addEventListener("DOMContentLoaded", async function () {
                 `;
             }
 
-            // Show welcome modal
+
             const welcomeModal = document.getElementById("welcome-modal");
             if (welcomeModal) {
                 welcomeModal.style.display = "flex";
             }
 
-            // Safe Event Listeners using Optional Chaining
+            
             document.getElementById("close-welcome")?.addEventListener("click", function () {
                 document.getElementById("welcome-modal")?.remove();
             });
@@ -172,7 +171,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             });
 
         } else {
-            // Unauthenticated state: wire up redirect handlers
+
             const loginBtn = document.getElementById("login");
             const signUpBtn = document.getElementById("sign-up");
 
@@ -186,14 +185,14 @@ document.addEventListener("DOMContentLoaded", async function () {
     } catch (err) {
         console.error("Auth check failed:", err);
     } finally {
-        // ALWAYS reveal navbar container regardless of errors or auth state
+
         if (lgnSgnCntr) {
             lgnSgnCntr.style.opacity = "1";
         }
     }
 });
 
-// Drop Box Javascript Elements
+
 const dropZone = document.getElementById('drop-zone');
 const fileInput = document.getElementById('file-input');
 const previewContainer = document.getElementById('preview-container');
@@ -252,14 +251,14 @@ removeBtn.addEventListener('click', () => {
     previewContainer.style.display = 'none';
     submitBtn.disabled = true;
 
-    // Reset status boxes on remove
+    
     const statusBox = document.getElementById('ocr-status');
     const resultBox = document.getElementById('ocr-result');
     if (statusBox) statusBox.style.display = 'none';
     if (resultBox) resultBox.style.display = 'none';
 });
 
-// Store Configurations
+
 const STORES = [
     { name: 'Amazon Pharmacy', url: name => `https://www.amazon.com/s?k=${encodeURIComponent(name)}+pharmacy` },
     { name: 'GoodRx', url: name => `https://www.goodrx.com/${encodeURIComponent(name.toLowerCase())}` },
@@ -267,7 +266,7 @@ const STORES = [
     { name: 'CVS Pharmacy', url: name => `https://www.cvs.com/search?searchTerm=${encodeURIComponent(name)}` }
 ];
 
-// Helper to convert File object to Base64
+
 function fileToBase64(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
@@ -277,13 +276,12 @@ function fileToBase64(file) {
     });
 }
 
-// Call Vision API via OpenRouter's Auto-Router
 async function scanWithGemini(file) {
     const apiKey = "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";
     const rawBase64 = await fileToBase64(file);
 
     const requestBody = {
-        model: "openrouter/free", // Automatically selects an active free vision model
+        model: "openrouter/free", 
         messages: [
             {
                 role: "user",
@@ -308,7 +306,7 @@ async function scanWithGemini(file) {
         headers: {
             "Authorization": `Bearer ${apiKey}`,
             "Content-Type": "application/json",
-            "HTTP-Referer": window.location.href, // Required by OpenRouter for client calls
+            "HTTP-Referer": window.location.href, 
             "X-Title": "MediScan"
         },
         body: JSON.stringify(requestBody)
@@ -322,12 +320,11 @@ async function scanWithGemini(file) {
     const data = await response.json();
     const content = data.choices[0].message.content;
     
-    // Strip possible markdown code blocks if the model wraps the JSON
     const cleanJson = content.replace(/```json|```/g, "").trim();
     return JSON.parse(cleanJson);
 }
 
-// Helper to generate purchasing dynamic links UI
+
 function renderStoreLinks(medicineList) {
     const linksContainer = document.getElementById('store-links');
     if (!linksContainer) return;
@@ -371,7 +368,6 @@ function renderStoreLinks(medicineList) {
     });
 }
 
-// OCR Processing Event Listener via OpenRouter Gemini AI
 submitBtn.addEventListener('click', async () => {
     if (!selectedFile) return;
 

@@ -49,45 +49,6 @@
     </div>
 </header>
 
-<!-- Main body -->
-
-  <!-- <div class="upload-card"> -->
-
-    <!-- <h2>Upload Prescription</h2>
-    <p>Upload your prescription to find available medicines across stores.</p>
-
-    <div class="drop-zone" id="drop-zone">
-
-      <svg class="upload-icon" viewBox="0 0 24 24">
-        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
-      </svg>
-
-      <div class="drop-zone-text">Drag & drop your file here or 
-        <span>browse</span>
-      </div>
-
-      <div class="file-limits">
-        Supports JPG, PNG, PDF (Max 5MB)
-      </div>
-
-      <input type="file" id="file-input" accept=".jpeg,.jpg,.png,.pdf">
-
-    </div>
-
-    <div class="preview-container" id="preview-container">
-
-      <div class="file-info">
-        📄 <span class="file-name" id="file-name"></span>
-      </div>
-
-      <button class="remove-btn" id="remove-btn" title="Remove file">&times;</button>
-
-    </div>
-
-    <button class="submit-btn" id="submit-btn" disabled>Scan Medicines</button> -->
-
-  <!-- </div> -->
-
 <div class="upload-card">
 
     <h2>Upload Prescription</h2>
@@ -107,17 +68,17 @@
       <button class="remove-btn" id="remove-btn" title="Remove file">&times;</button>
     </div>
 
-    <!-- Green status bar right above the submit button -->
+
     <div id="ocr-status" style="display: none; color: #15803d; background-color: #f0fdf4; border: 1px solid #bbf7d0; font-family: cursive; font-size: 0.95rem; font-weight: bold; padding: 0.75rem; border-radius: 0.8rem; margin-bottom: 1rem; text-align: center;"></div>
 
     <button class="submit-btn" id="submit-btn" disabled>Scan Medicines</button>
 
-    <!-- Single output container for OCR text & store links -->
+
     <div id="ocr-result" style="display: none; text-align: left; margin-top: 1.5rem;">
         <p style="font-family: cursive; font-weight: bold; color: #15803d; margin-bottom: 0.3rem;">Extracted Text:</p>
         <pre id="extracted-text" style="background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; padding: 0.8rem; border-radius: 0.8rem; white-space: pre-wrap; font-family: monospace; max-height: 150px; overflow-y: auto; margin-bottom: 1rem;"></pre>
         
-        <!-- Buying Links Container -->
+
         <div id="store-links"></div>
     </div>
 
@@ -132,7 +93,6 @@
             alt="MediScan" title="Mediscan" style="padding-bottom: 30px;">
         </div>
         
-        <!-- <div id="ftr-link-cntr"> -->
 
         <div id="footer-links">
 
@@ -176,7 +136,7 @@
                 <a href="contact.html"><li>Email/Phone</li></a>
             </ul>
         </div>
-        <!-- </div> -->
+        
     </div>
 
 
@@ -205,7 +165,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="main.js"></script>
 
-<!-- Logout Modal -->
+
 <div id="logout-modal" style="
     display: none; 
     position: fixed; 
